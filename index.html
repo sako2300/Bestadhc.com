@@ -589,12 +589,98 @@
     }
     @media (max-width: 700px) {
       .nav-links { display: none; }
+      .hamburger { display: flex; }
       .strip-grid { grid-template-columns: 1fr; }
       .services-grid { grid-template-columns: 1fr; }
       .hero h1 { font-size: 2.2rem; }
       section { padding: 64px 0; }
       .act-photo { height: 260px; }
     }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 40px;
+      height: 40px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      z-index: 200;
+      flex-shrink: 0;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--navy);
+      border-radius: 2px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      transform-origin: center;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-menu {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 150;
+      pointer-events: none;
+      display: none;
+    }
+    .mobile-menu.open { pointer-events: all; }
+    .mobile-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(15, 45, 69, 0.5);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .mobile-menu.open .mobile-overlay { opacity: 1; }
+    .mobile-drawer {
+      position: absolute;
+      top: 0; right: 0;
+      width: 75%;
+      max-width: 300px;
+      height: 100%;
+      background: #fff;
+      padding: 88px 32px 40px;
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      flex-direction: column;
+      box-shadow: -8px 0 32px rgba(0,0,0,0.12);
+    }
+    .mobile-menu.open .mobile-drawer { transform: translateX(0); }
+    .mobile-drawer a {
+      display: block;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--navy);
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+      letter-spacing: 0.02em;
+      transition: color 0.2s, padding-left 0.2s;
+      text-decoration: none;
+    }
+    .mobile-drawer a:hover { color: var(--blue); padding-left: 6px; }
+    .mobile-drawer .mobile-cta {
+      margin-top: 28px;
+      border: none;
+      background: var(--navy);
+      color: #fff !important;
+      text-align: center;
+      padding: 14px 0;
+      border-radius: 4px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      font-size: 0.95rem;
+    }
+    .mobile-drawer .mobile-cta:hover { background: var(--blue); padding-left: 0; color: #fff !important; }
+    @media (max-width: 700px) { .mobile-menu { display: block; } }
   </style>
 </head>
 <body>
@@ -616,7 +702,7 @@
           <rect x="21" y="33" width="22" height="8" rx="3" fill="#ffffff"/>
           <path d="M15 47 L21 47 L24 41 L28 53 L31 43 L34 47 L37 47 L40 41 L43 47 L49 47" fill="none" stroke="#8fc7d8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-        Best Adult Day Health Care Center
+        Best ADHC
       </a>
       <nav class="nav-links">
         <a href="#about">About</a>
@@ -625,8 +711,23 @@
         <a href="#service-areas">Service Areas</a>
         <a href="#contact" class="btn-nav">Contact Us</a>
       </nav>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
+
+  <!-- ── MOBILE MENU ── -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-drawer">
+      <a href="#about" class="mobile-link">About</a>
+      <a href="#services" class="mobile-link">Services</a>
+      <a href="#activities" class="mobile-link">Activities</a>
+      <a href="#service-areas" class="mobile-link">Service Areas</a>
+      <a href="#contact" class="mobile-cta">Contact Us</a>
+    </div>
+  </div>
 
   <!-- ── HERO ── -->
   <section class="hero" id="home">
@@ -634,7 +735,7 @@
     <div class="hero-overlay"></div>
     <div class="container">
       <div class="hero-content">
-        <span class="hero-label">Community Based Adult Services · North Hollywood & Tujunga</span>
+        <span class="hero-label">Adult Day Health Care · North Hollywood & Tujunga</span>
         <h1>Compassionate care that keeps your loved ones active and connected.</h1>
         <p>Nursing support, enriching activities, and social services — all in a warm community setting.</p>
         <div class="hero-actions">
@@ -1030,6 +1131,30 @@
   </footer>
 
   <script>
+    // Hamburger menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileOverlay = document.getElementById('mobileOverlay');
+
+    function openMenu() {
+      mobileMenu.classList.add('open');
+      hamburger.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMenu() {
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    hamburger.addEventListener('click', () => {
+      mobileMenu.classList.contains('open') ? closeMenu() : openMenu();
+    });
+    mobileOverlay.addEventListener('click', closeMenu);
+    document.querySelectorAll('.mobile-link, .mobile-cta').forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+
     // Scroll-reveal observer
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
