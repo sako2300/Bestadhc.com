@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230f2d45'/%3E%3Cpath d='M32 10 L12 19 L12 36 C12 50 20 58 32 63 C44 58 52 50 52 36 L52 19 Z' fill='%231f5f8b'/%3E%3Crect x='28' y='26' width='8' height='22' rx='3' fill='%23ffffff'/%3E%3Crect x='21' y='33' width='22' height='8' rx='3' fill='%23ffffff'/%3E%3Cpath d='M15 47 L21 47 L24 41 L28 53 L31 43 L34 47 L37 47 L40 41 L43 47 L49 47' fill='none' stroke='%238fc7d8' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
 
   <style>
     :root {
@@ -84,18 +85,10 @@
       letter-spacing: 0.02em;
     }
     .logo-mark {
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
-      background: var(--navy);
-      display: grid;
-      place-items: center;
-      color: #fff;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 1px;
+      width: 44px;
+      height: 44px;
       flex-shrink: 0;
+      display: block;
     }
     .nav-links {
       display: flex;
@@ -616,7 +609,13 @@
   <header>
     <div class="container nav">
       <a href="#home" class="brand">
-        <div class="logo-mark">BEST</div>
+        <svg class="logo-mark" width="44" height="44" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="64" height="64" rx="12" fill="#0f2d45"/>
+          <path d="M32 10 L12 19 L12 36 C12 50 20 58 32 63 C44 58 52 50 52 36 L52 19 Z" fill="#1f5f8b"/>
+          <rect x="28" y="26" width="8" height="22" rx="3" fill="#ffffff"/>
+          <rect x="21" y="33" width="22" height="8" rx="3" fill="#ffffff"/>
+          <path d="M15 47 L21 47 L24 41 L28 53 L31 43 L34 47 L37 47 L40 41 L43 47 L49 47" fill="none" stroke="#8fc7d8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
         Best ADHC
       </a>
       <nav class="nav-links">
@@ -635,7 +634,7 @@
     <div class="container">
       <div class="hero-content">
         <span class="hero-label">Adult Day Health Care · North Hollywood & Tujunga</span>
-        <h1>COMPASSIONATE CARE THAT KEEPS YOUR LOVED ONES ACTIVE AND CONNECTED</h1>
+        <h1>Compassionate care that keeps your loved ones active and connected.</h1>
         <p>Nursing support, enriching activities, and social services — all in a warm community setting.</p>
         <div class="hero-actions">
           <a href="#contact" class="btn-hero-primary">Schedule a Tour</a>
@@ -921,9 +920,18 @@
   <footer>
     <div class="container">
       <div class="footer-wrap">
-        <div>
-          <div class="footer-brand">Best ADHC</div>
-          <div class="footer-sub">Compassionate daytime care with health support, engagement, and community.</div>
+        <div style="display:flex; align-items:center; gap:12px;">
+          <svg width="36" height="36" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="flex-shrink:0;">
+            <rect width="64" height="64" rx="12" fill="#0f2d45"/>
+            <path d="M32 10 L12 19 L12 36 C12 50 20 58 32 63 C44 58 52 50 52 36 L52 19 Z" fill="#1f5f8b"/>
+            <rect x="28" y="26" width="8" height="22" rx="3" fill="#ffffff"/>
+            <rect x="21" y="33" width="22" height="8" rx="3" fill="#ffffff"/>
+            <path d="M15 47 L21 47 L24 41 L28 53 L31 43 L34 47 L37 47 L40 41 L43 47 L49 47" fill="none" stroke="#8fc7d8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div>
+            <div class="footer-brand">Best ADHC</div>
+            <div class="footer-sub">Compassionate daytime care with health support, engagement, and community.</div>
+          </div>
         </div>
         <nav class="footer-links">
           <a href="#about">About</a>
