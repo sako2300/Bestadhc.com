@@ -602,13 +602,15 @@
       display: none;
       flex-direction: column;
       justify-content: center;
+      align-items: center;
       gap: 5px;
-      width: 40px;
-      height: 40px;
+      width: 44px;
+      height: 44px;
       background: none;
-      border: none;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
       cursor: pointer;
-      padding: 4px;
+      padding: 0;
       z-index: 200;
       flex-shrink: 0;
     }
@@ -630,9 +632,9 @@
       top: 0; left: 0; right: 0; bottom: 0;
       z-index: 150;
       pointer-events: none;
-      display: none;
+      visibility: hidden;
     }
-    .mobile-menu.open { pointer-events: all; }
+    .mobile-menu.open { pointer-events: all; visibility: visible; }
     .mobile-overlay {
       position: absolute;
       inset: 0;
@@ -681,7 +683,6 @@
       font-size: 0.95rem;
     }
     .mobile-drawer .mobile-cta:hover { background: var(--blue); padding-left: 0; color: #fff !important; }
-    @media (max-width: 700px) { .mobile-menu { display: block; } }
   </style>
 </head>
 <body>
@@ -703,7 +704,7 @@
           <rect x="21" y="33" width="22" height="8" rx="3" fill="#ffffff"/>
           <path d="M15 47 L21 47 L24 41 L28 53 L31 43 L34 47 L37 47 L40 41 L43 47 L49 47" fill="none" stroke="#8fc7d8" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-        Best Adult Day Health Care
+        Best Adult Day Health Care Center
       </a>
       <nav class="nav-links">
         <a href="#about">About</a>
