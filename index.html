@@ -5,233 +5,602 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Best ADHC</title>
   <meta name="description" content="Compassionate Adult Day Health Care with nursing support, social services, transportation coordination, enriching activities, and community based care." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
   <style>
     :root {
-      --primary: #1f5f8b;
-      --primary-dark: #174766;
-      --accent: #8fc7d8;
-      --bg: #f5f9fc;
-      --text: #1f2933;
-      --muted: #5b6b79;
-      --card: #ffffff;
-      --border: #d9e4ec;
-      --success: #2f855a;
-      --shadow: 0 10px 30px rgba(20, 45, 73, 0.08);
-      --radius: 18px;
-      --max: 1180px;
+      --navy: #0f2d45;
+      --blue: #1f5f8b;
+      --sky: #8fc7d8;
+      --cream: #f8f6f2;
+      --white: #ffffff;
+      --muted: #6b7c8d;
+      --border: #e2e8ed;
+      --max: 1100px;
     }
 
-    * { box-sizing: border-box; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
+
     body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--text);
-      background: #ffffff;
-      line-height: 1.6;
+      font-family: 'DM Sans', sans-serif;
+      color: var(--navy);
+      background: var(--white);
+      line-height: 1.65;
+      overflow-x: hidden;
     }
+
     a { color: inherit; text-decoration: none; }
     img { max-width: 100%; display: block; }
 
-    .container { width: min(92%, var(--max)); margin: 0 auto; }
-
-    .topbar { background: var(--primary); color: #fff; font-size: 0.95rem; }
-    .topbar .container {
-      display: flex; justify-content: space-between;
-      gap: 20px; padding: 10px 0; flex-wrap: wrap;
+    .container {
+      width: min(90%, var(--max));
+      margin: 0 auto;
     }
 
+    /* ── TOPBAR ── */
+    .topbar {
+      background: var(--navy);
+      color: rgba(255,255,255,0.75);
+      font-size: 0.82rem;
+      letter-spacing: 0.02em;
+      padding: 9px 0;
+    }
+    .topbar .container {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .topbar a { color: rgba(255,255,255,0.75); }
+    .topbar a:hover { color: #fff; }
+
+    /* ── HEADER ── */
     header {
-      position: sticky; top: 0; z-index: 50;
-      background: rgba(255,255,255,0.96);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid #edf2f7;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
     }
     .nav {
-      display: flex; align-items: center;
-      justify-content: space-between; gap: 20px; padding: 16px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 0;
+      gap: 20px;
     }
-    .brand { display: flex; align-items: center; gap: 14px; font-weight: 700; font-size: 1.25rem; }
-    .logo {
-      width: 48px; height: 48px; border-radius: 14px;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      display: grid; place-items: center;
-      color: #fff; font-weight: 700; font-size: 0.78rem;
-      letter-spacing: 0.5px; box-shadow: var(--shadow);
-      overflow: hidden; flex-shrink: 0;
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.45rem;
+      font-weight: 600;
+      color: var(--navy);
+      letter-spacing: 0.02em;
     }
-    .nav-links { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
-    .nav-links a { color: var(--muted); font-weight: 600; }
-    .nav-links a:hover { color: var(--primary); }
+    .logo-mark {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--navy);
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      flex-shrink: 0;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    .nav-links a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--navy); }
+    .btn-nav {
+      background: var(--navy);
+      color: #fff !important;
+      padding: 10px 22px;
+      border-radius: 999px;
+      font-size: 0.87rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-nav:hover { background: var(--blue); transform: translateY(-1px); }
 
-    .btn {
-      display: inline-block; padding: 13px 20px; border-radius: 999px;
-      font-weight: 700; transition: 0.2s ease; border: none;
-      cursor: pointer; font-family: inherit; font-size: 1rem;
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      height: 92vh;
+      min-height: 580px;
+      max-height: 820px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
     }
-    .btn-primary {
-      background: var(--primary); color: #ffffff !important;
-      box-shadow: var(--shadow); text-decoration: none;
+    .hero-img {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1762955911431-4c44c7c3f408?q=80&w=1400&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center top;
+      filter: brightness(0.45);
+      transform: scale(1.04);
+      animation: heroZoom 8s ease forwards;
     }
-    .btn-primary:hover { background: var(--primary-dark); transform: translateY(-1px); color: #ffffff !important; }
-    .btn-white {
-      background: #ffffff; color: var(--primary-dark) !important; box-shadow: var(--shadow);
+    @keyframes heroZoom {
+      to { transform: scale(1); }
     }
-    .btn-white:hover { background: #f0f8ff; transform: translateY(-1px); }
-    .btn-secondary { background: #eaf4fb; color: var(--primary-dark); border: 1px solid #cde3f1; }
-
-    /* ── HERO with full background photo ── */
-    .hero { position: relative; padding: 90px 0 70px; overflow: hidden; }
-    .hero-bg {
-      position: absolute; inset: 0;
-      background-image: url('https://images.unsplash.com/photo-1762955911431-4c44c7c3f408?q=80&w=1121&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-      background-size: cover; background-position: center top;
-      filter: brightness(0.38); z-index: 0;
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(15,45,69,0.6) 0%, rgba(15,45,69,0.15) 100%);
     }
-    .hero-bg::after {
-      content: ''; position: absolute; inset: 0;
-      background: linear-gradient(120deg, rgba(23,71,102,0.72) 0%, rgba(31,95,139,0.45) 100%);
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      color: #fff;
+      max-width: 640px;
+      animation: fadeUp 1s ease 0.3s both;
     }
-    .hero .container { position: relative; z-index: 1; }
-    .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center; }
-
-    .eyebrow {
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hero-label {
       display: inline-block;
-      background: rgba(255,255,255,0.18);
-      color: #fff; border: 1px solid rgba(255,255,255,0.35);
-      padding: 7px 14px; border-radius: 999px;
-      font-size: 0.9rem; font-weight: 700; margin-bottom: 16px;
-      backdrop-filter: blur(4px);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--sky);
+      margin-bottom: 20px;
     }
-    .hero h1 { margin: 0 0 16px; font-size: clamp(2.2rem, 5vw, 4.1rem); line-height: 1.1; color: #ffffff; }
-    .hero-left-text { font-size: 1.1rem; color: rgba(255,255,255,0.88); max-width: 650px; margin-bottom: 26px; }
-    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 24px; }
-
-    .quick-points { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 28px; }
-    .quick-card {
-      background: rgba(255,255,255,0.92); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 16px; box-shadow: var(--shadow);
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.6rem, 5.5vw, 4.2rem);
+      font-weight: 500;
+      line-height: 1.1;
+      margin-bottom: 22px;
+      color: #fff;
     }
-    .quick-card strong { display: block; margin-bottom: 6px; color: var(--primary-dark); }
-
-    .hero-panel {
-      background: rgba(255,255,255,0.95); border-radius: 28px;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.25); padding: 28px; border: 1px solid var(--border);
+    .hero p {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.82);
+      max-width: 480px;
+      margin-bottom: 36px;
+      font-weight: 300;
     }
-    .hero-panel h3 { margin-top: 0; margin-bottom: 10px; font-size: 1.4rem; color: var(--primary-dark); }
-    .hero-panel ul { padding-left: 18px; margin-bottom: 22px; }
-    .hero-panel li { margin-bottom: 10px; }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-hero-primary {
+      background: #fff;
+      color: var(--navy) !important;
+      padding: 14px 28px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.03em;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-hero-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+    .btn-hero-ghost {
+      border: 1.5px solid rgba(255,255,255,0.5);
+      color: rgba(255,255,255,0.9) !important;
+      padding: 14px 28px;
+      border-radius: 999px;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-hero-ghost:hover { border-color: #fff; background: rgba(255,255,255,0.08); }
 
-    .note-box {
-      background: #f5fbf7; border: 1px solid #cde8d5;
-      border-radius: 16px; padding: 16px; color: #24543a; font-weight: 600;
+    /* ── SCROLL ANIMATION ENGINE ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-36px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal-left.visible { opacity: 1; transform: translateX(0); }
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(36px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+    /* ── SECTION BASE ── */
+    section { padding: 96px 0; }
+    .section-tag {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--blue);
+      display: block;
+      margin-bottom: 14px;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 500;
+      line-height: 1.15;
+      color: var(--navy);
+      margin-bottom: 16px;
+    }
+    .section-sub {
+      font-size: 1rem;
+      color: var(--muted);
+      font-weight: 300;
+      max-width: 520px;
+      line-height: 1.7;
     }
 
-    section { padding: 72px 0; }
-    .section-head { max-width: 760px; margin-bottom: 34px; }
-    .section-head h2 { margin: 0 0 12px; font-size: clamp(1.9rem, 4vw, 2.8rem); color: var(--primary-dark); }
-    .section-head p { margin: 0; color: var(--muted); font-size: 1.05rem; }
-
-    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-    .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
-
-    .card {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 24px; padding: 24px; box-shadow: var(--shadow); height: 100%;
+    /* ── STRIP / WHY US ── */
+    .strip {
+      background: var(--cream);
+      padding: 60px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
     }
-    .card h3 { margin-top: 0; margin-bottom: 10px; color: var(--primary-dark); }
+    .strip-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+    .strip-item {
+      padding: 28px 32px;
+      border-right: 1px solid var(--border);
+    }
+    .strip-item:last-child { border-right: none; }
+    .strip-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem;
+      font-weight: 600;
+      color: var(--blue);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .strip-label {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+    .strip-desc { font-size: 0.84rem; color: var(--muted); font-weight: 300; }
 
-    .icon {
-      width: 52px; height: 52px; border-radius: 16px;
-      display: grid; place-items: center;
-      background: #eaf4fb; color: var(--primary); font-size: 1.5rem; margin-bottom: 16px;
+    /* ── ABOUT ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .about-photo {
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+    }
+    .about-photo img {
+      width: 100%;
+      height: 520px;
+      object-fit: cover;
+      display: block;
+    }
+    .about-photo::before {
+      content: '';
+      position: absolute;
+      top: -16px;
+      left: -16px;
+      right: 16px;
+      bottom: 16px;
+      border: 1.5px solid var(--sky);
+      border-radius: 4px;
+      z-index: -1;
+    }
+    .mission-box {
+      background: var(--cream);
+      border-left: 3px solid var(--sky);
+      padding: 22px 24px;
+      border-radius: 0 4px 4px 0;
+      margin: 28px 0;
+    }
+    .mission-box p {
+      font-size: 0.97rem;
+      color: var(--navy);
+      font-weight: 400;
+      line-height: 1.7;
     }
 
-    /* ── ABOUT with photo ── */
-    .about-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: stretch; }
-    .about-photo-wrap { border-radius: 24px; overflow: hidden; box-shadow: var(--shadow); }
-    .about-photo { width: 100%; height: 100%; min-height: 320px; object-fit: cover; display: block; }
-
-    .stats { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; margin-top: 22px; }
-    .stat { background: #f7fbfe; border: 1px solid var(--border); border-radius: 18px; padding: 18px; }
-    .stat strong { display: block; font-size: 1.6rem; color: var(--primary-dark); margin-bottom: 6px; }
-
-    .steps { display: grid; gap: 16px; }
-    .step {
-      display: grid; grid-template-columns: 48px 1fr; gap: 14px; align-items: start;
-      background: #fff; border: 1px solid var(--border); border-radius: 20px;
-      padding: 18px; box-shadow: var(--shadow);
+    /* ── SERVICES ── */
+    .services-bg { background: var(--cream); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
     }
-    .step-number {
-      width: 48px; height: 48px; border-radius: 50%;
-      background: var(--primary); color: #fff; display: grid; place-items: center; font-weight: 700;
+    .service-cell {
+      background: var(--white);
+      padding: 36px 32px;
+      transition: background 0.25s;
     }
-
-    .services .card ul, .activities .card ul, .faq ul { padding-left: 18px; margin: 0; }
-    .services .card li, .activities .card li, .faq li { margin-bottom: 8px; }
-
-    /* ── ACTIVITIES photo banner ── */
-    .activities-banner {
-      width: 100%; height: 280px; object-fit: cover; object-position: center 40%;
-      border-radius: 24px; margin-bottom: 32px; box-shadow: var(--shadow); display: block;
+    .service-cell:hover { background: var(--navy); }
+    .service-cell:hover .sc-title,
+    .service-cell:hover .sc-icon,
+    .service-cell:hover .sc-list li { color: rgba(255,255,255,0.9); }
+    .service-cell:hover .sc-icon { background: rgba(255,255,255,0.1); }
+    .sc-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: #eaf4fb;
+      display: grid;
+      place-items: center;
+      font-size: 1.2rem;
+      margin-bottom: 18px;
+      transition: background 0.25s;
     }
-
-    .cta {
-      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
-      color: #fff; border-radius: 32px; padding: 36px; box-shadow: var(--shadow);
+    .sc-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 14px;
+      transition: color 0.25s;
     }
-    .cta h2 { margin-top: 0; color: #fff; }
-    .cta p { color: rgba(255,255,255,0.9); }
+    .sc-list { list-style: none; padding: 0; }
+    .sc-list li {
+      font-size: 0.88rem;
+      color: var(--muted);
+      padding: 5px 0;
+      border-bottom: 1px solid var(--border);
+      transition: color 0.25s, border-color 0.25s;
+      font-weight: 300;
+    }
+    .service-cell:hover .sc-list li { border-color: rgba(255,255,255,0.1); }
+    .sc-list li:last-child { border-bottom: none; }
+
+    /* ── ACTIVITIES ── */
+    .act-photo {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+      object-position: center 40%;
+      display: block;
+      margin-bottom: 56px;
+    }
+    .act-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .act-card { border-top: 2px solid var(--sky); padding-top: 22px; }
+    .act-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 14px;
+    }
+    .act-card ul { list-style: none; padding: 0; }
+    .act-card li {
+      font-size: 0.9rem;
+      color: var(--muted);
+      padding: 6px 0;
+      border-bottom: 1px solid var(--border);
+      font-weight: 300;
+    }
+    .act-card li:last-child { border-bottom: none; }
+
+    /* ── CTA BAND ── */
+    .cta-band {
+      background: var(--navy);
+      color: #fff;
+      padding: 72px 0;
+      text-align: center;
+    }
+    .cta-band .section-title { color: #fff; margin-bottom: 14px; }
+    .cta-band p { color: rgba(255,255,255,0.7); font-size: 1rem; max-width: 480px; margin: 0 auto 32px; font-weight: 300; }
+    .btn-cta {
+      display: inline-block;
+      background: var(--sky);
+      color: var(--navy) !important;
+      padding: 14px 32px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.03em;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.25); }
 
     /* ── CONTACT ── */
-    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-    .contact-photo-strip {
-      width: 100%; height: 180px; object-fit: cover; object-position: center 30%;
-      border-radius: 18px; margin-bottom: 18px; display: block;
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: start;
     }
-    .contact-list { display: grid; gap: 14px; margin-top: 18px; }
-    .contact-item { background: #f8fbfd; border: 1px solid var(--border); border-radius: 18px; padding: 16px; }
-    .location-card { background: #f8fbfd; border: 1px solid var(--border); border-radius: 18px; padding: 16px; }
-    .location-card h4 { margin: 0 0 10px; color: var(--primary-dark); font-size: 1rem; }
-    .location-card p { margin: 0 0 8px; font-size: 0.95rem; }
+    .location-block { margin-bottom: 28px; }
+    .location-block h4 {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--navy);
+      margin-bottom: 6px;
+      letter-spacing: 0.02em;
+    }
+    .location-block p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.6;
+    }
+    .location-block a { color: var(--blue); }
+    .divider { border: none; border-top: 1px solid var(--border); margin: 22px 0; }
 
-    .map-preview {
-      position: relative; display: block; margin-top: 14px;
-      border-radius: 16px; overflow: hidden; border: 1px solid var(--border);
+    .map-wrap {
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      margin-top: 8px;
     }
-    .map-preview iframe { display: block; width: 100%; height: 240px; border: 0; pointer-events: none; }
-    .map-overlay {
-      position: absolute; right: 14px; bottom: 14px;
-      background: rgba(31,95,139,0.92); color: #fff;
-      padding: 10px 14px; border-radius: 999px; font-weight: 700; font-size: 0.95rem;
+    .map-wrap iframe { display: block; width: 100%; height: 180px; border: 0; pointer-events: none; }
+    .map-link {
+      display: block;
+      text-align: center;
+      padding: 10px;
+      background: var(--cream);
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--blue);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .map-link:hover { background: var(--border); }
+
+    /* ── CONTACT FORM ── */
+    .form-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 24px;
+    }
+    .form-row { display: grid; gap: 14px; }
+    .field { display: grid; gap: 6px; }
+    .field label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .field input,
+    .field textarea,
+    .field select {
+      width: 100%;
+      padding: 13px 16px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font: inherit;
+      font-size: 0.93rem;
+      color: var(--navy);
+      background: #fff;
+      transition: border-color 0.2s;
+      -webkit-appearance: none;
+    }
+    .field input:focus,
+    .field textarea:focus,
+    .field select:focus {
+      outline: none;
+      border-color: var(--blue);
+    }
+    .field textarea { min-height: 110px; resize: vertical; }
+    .btn-form {
+      background: var(--navy);
+      color: #fff;
+      padding: 14px 32px;
+      border-radius: 4px;
+      font: inherit;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.2s;
+      margin-top: 6px;
+    }
+    .btn-form:hover { background: var(--blue); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--cream);
+      border-top: 1px solid var(--border);
+      padding: 40px 0;
+    }
+    .footer-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .footer-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--navy);
+    }
+    .footer-sub {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 4px;
+      font-weight: 300;
+    }
+    .footer-links {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-weight: 400;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--navy); }
+    .footer-copy {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 24px;
+      font-weight: 300;
     }
 
-    form { display: grid; gap: 14px; }
-    label { font-weight: 700; color: var(--primary-dark); font-size: 0.96rem; display: block; margin-bottom: 6px; }
-    input, textarea, select {
-      width: 100%; padding: 14px 15px; border-radius: 14px;
-      border: 1px solid #cddae3; font: inherit; background: #fff;
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+      .strip-grid { grid-template-columns: repeat(2, 1fr); }
+      .strip-item { border-bottom: 1px solid var(--border); }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .act-grid { grid-template-columns: 1fr; gap: 28px; }
+      .about-photo img { height: 340px; }
     }
-    textarea { min-height: 120px; resize: vertical; }
-
-    footer { background: #0f2f45; color: #e7f1f7; padding: 28px 0; }
-    .footer-wrap { display: flex; justify-content: space-between; gap: 18px; align-items: center; flex-wrap: wrap; }
-    .footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
-    .muted { color: var(--muted); }
-
-    @media (max-width: 980px) {
-      .hero-grid, .grid-3, .grid-2, .about-wrap, .contact-grid { grid-template-columns: 1fr; }
-      .quick-points, .stats { grid-template-columns: 1fr; }
-      .nav { flex-direction: column; align-items: flex-start; }
-      .about-photo { min-height: 220px; }
-    }
-    @media (max-width: 640px) {
-      .hero { padding-top: 50px; }
-      .hero-panel, .card, .cta { padding: 22px; }
-      .nav-links { gap: 12px; }
-      .topbar .container, .footer-wrap { flex-direction: column; align-items: flex-start; }
-      .activities-banner { height: 180px; }
-      .contact-photo-strip { height: 130px; }
+    @media (max-width: 700px) {
+      .nav-links { display: none; }
+      .strip-grid { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 2.2rem; }
+      section { padding: 64px 0; }
+      .act-photo { height: 260px; }
     }
   </style>
 </head>
@@ -239,371 +608,295 @@
 
   <div class="topbar">
     <div class="container">
-      <div>Compassionate Care. Engaging Programs. Better Living.</div>
-      <div>North Hollywood: (818) 509-1619 | Tujunga: (818) 353-3224 | Email: info@bestadhc.com</div>
+      <span>North Hollywood: <a href="tel:+18185091619">(818) 509-1619</a> &nbsp;·&nbsp; Tujunga: <a href="tel:+18183533224">(818) 353-3224</a></span>
+      <span><a href="mailto:info@bestadhc.com">info@bestadhc.com</a> &nbsp;·&nbsp; Mon – Fri, 8:00 AM – 3:00 PM</span>
     </div>
   </div>
 
   <header>
     <div class="container nav">
       <a href="#home" class="brand">
-        <div class="logo">BEST</div>
-        <span>Best ADHC</span>
+        <div class="logo-mark">BEST</div>
+        Best ADHC
       </a>
       <nav class="nav-links">
         <a href="#about">About</a>
         <a href="#services">Services</a>
         <a href="#activities">Activities</a>
-        <a href="#referrals">Referrals</a>
-        <a href="#contact" class="btn btn-primary" style="color:#ffffff;">Contact Us</a>
+        <a href="#contact" class="btn-nav">Contact Us</a>
       </nav>
     </div>
   </header>
 
-  <main>
-
-    <!-- ══ HERO — Photo 1 as full background ══ -->
-    <section class="hero" id="home">
-      <div class="hero-bg"></div>
-      <div class="container hero-grid">
-        <div>
-          <span class="eyebrow">Compassionate care you can trust, right in your neighborhood</span>
-          <h1>Supportive daytime care that helps participants stay active, connected, and cared for.</h1>
-          <p class="hero-left-text">
-            Best ADHC provides health related support, social services, coordinated care, transportation guidance, and engaging daily programming in a warm community setting.
-          </p>
-          <div class="hero-actions">
-            <a href="#contact" class="btn btn-white">Schedule a Tour</a>
-            <a href="#services" class="btn btn-secondary">Explore Services</a>
-          </div>
-          <div class="quick-points">
-            <div class="quick-card">
-              <strong>Nursing Support</strong>
-              Medication oversight, monitoring, and health related coordination.
-            </div>
-            <div class="quick-card">
-              <strong>Enriching Activities</strong>
-              Daily programming, social connection, and community outings.
-            </div>
-            <div class="quick-card">
-              <strong>Social Services</strong>
-              Guidance for participants and families with care coordination and support.
-            </div>
-          </div>
-        </div>
-
-        <div class="hero-panel">
-          <h3>Why families choose Best ADHC</h3>
-          <ul>
-            <li>Structured day program designed to promote safety, wellness, and social engagement</li>
-            <li>Supportive staff focused on each participant's needs, goals, and comfort</li>
-            <li>Transportation guidance and coordination support to help participants get to and from the center</li>
-            <li>A welcoming environment that helps reduce isolation and supports independence</li>
-          </ul>
-          <div class="note-box">
-            Accepting referrals and inquiries from families, providers, case managers, and community partners.
-          </div>
+  <!-- ── HERO ── -->
+  <section class="hero" id="home">
+    <div class="hero-img"></div>
+    <div class="hero-overlay"></div>
+    <div class="container">
+      <div class="hero-content">
+        <span class="hero-label">Adult Day Health Care · North Hollywood & Tujunga</span>
+        <h1>Compassionate care that keeps your loved ones active and connected.</h1>
+        <p>Nursing support, enriching activities, and social services — all in a warm community setting.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn-hero-primary">Schedule a Tour</a>
+          <a href="#services" class="btn-hero-ghost">Our Services</a>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ══ ABOUT — Photo 2 beside mission ══ -->
-    <section id="about">
-      <div class="container">
-        <div class="about-wrap">
-          <div>
-            <div class="section-head">
-              <h2>About Best ADHC</h2>
-              <p>We are committed to providing a safe, respectful, and engaging day health environment where participants receive individualized support while remaining connected to their community.</p>
-            </div>
-            <div class="card">
-              <h3>Our mission</h3>
-              <p>To deliver compassionate adult day health care that supports well being, encourages independence, and gives families trusted daytime support.</p>
-              <p>Our team works to blend health related services, meaningful activities, and participant centered care in one coordinated setting.</p>
-              <div class="stats">
-                <div class="stat"><strong>Health</strong>Nursing support and care monitoring in a structured environment.</div>
-                <div class="stat"><strong>Connection</strong>Activities designed to reduce isolation and build community.</div>
-                <div class="stat"><strong>Guidance</strong>Social services support for participants and families.</div>
-                <div class="stat"><strong>Support</strong>Help coordinating with caregivers and community resources.</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Photo 2 -->
-          <div class="about-photo-wrap">
-            <img
-              class="about-photo"
-              src="https://images.unsplash.com/photo-1758691031257-09efdf77f392?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt="Caring staff supporting a senior participant"
-              loading="lazy"
-            />
-          </div>
+  <!-- ── STRIP ── -->
+  <div class="strip">
+    <div class="container">
+      <div class="strip-grid">
+        <div class="strip-item reveal reveal-delay-1">
+          <div class="strip-num">❤</div>
+          <div class="strip-label">Nursing Care</div>
+          <div class="strip-desc">Health monitoring and medication oversight.</div>
         </div>
-
-        <!-- What makes us different -->
-        <div style="margin-top: 28px;">
-          <div class="card">
-            <h3>What makes our center different</h3>
-            <div class="steps">
-              <div class="step">
-                <div class="step-number">1</div>
-                <div>
-                  <strong>Participant centered care</strong>
-                  <div class="muted">We focus on each participant's health needs, preferences, and comfort level.</div>
-                </div>
-              </div>
-              <div class="step">
-                <div class="step-number">2</div>
-                <div>
-                  <strong>Meaningful daily structure</strong>
-                  <div class="muted">Our program balances care support, socialization, therapeutic engagement, and supervised activities.</div>
-                </div>
-              </div>
-              <div class="step">
-                <div class="step-number">3</div>
-                <div>
-                  <strong>Family and caregiver support</strong>
-                  <div class="muted">We help families navigate next steps, services, and ongoing care communication.</div>
-                </div>
-              </div>
-              <div class="step">
-                <div class="step-number">4</div>
-                <div>
-                  <strong>Community connection</strong>
-                  <div class="muted">Participants enjoy social opportunities, special events, and field trips that create memorable experiences.</div>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="strip-item reveal reveal-delay-2">
+          <div class="strip-num">☀</div>
+          <div class="strip-label">Social Services</div>
+          <div class="strip-desc">Guidance and support for participants and families.</div>
+        </div>
+        <div class="strip-item reveal reveal-delay-3">
+          <div class="strip-num">✦</div>
+          <div class="strip-label">Daily Activities</div>
+          <div class="strip-desc">Enriching programs that encourage joy and connection.</div>
+        </div>
+        <div class="strip-item reveal reveal-delay-4">
+          <div class="strip-num">➜</div>
+          <div class="strip-label">Transportation</div>
+          <div class="strip-desc">Coordination support for safe daily attendance.</div>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
 
-    <!-- ══ SERVICES ══ -->
-    <section class="services" id="services" style="background: var(--bg);">
-      <div class="container">
-        <div class="section-head">
-          <h2>Our Services</h2>
-          <p>Best ADHC brings together health support, social services, and coordinated daytime care to meet participants where they are.</p>
+  <!-- ── ABOUT ── -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-photo reveal-left">
+          <img
+            src="https://images.unsplash.com/photo-1758691031257-09efdf77f392?q=80&w=1000&auto=format&fit=crop"
+            alt="Caring staff supporting a senior participant"
+            loading="lazy"
+          />
         </div>
-        <div class="grid-3">
-          <div class="card">
-            <div class="icon" aria-hidden="true">❤</div>
-            <h3>Nursing Services</h3>
-            <ul>
-              <li>Health monitoring and observation</li>
-              <li>Medication support and oversight</li>
-              <li>Treatment related coordination</li>
-              <li>Communication with providers and caregivers</li>
-            </ul>
+        <div class="reveal-right">
+          <span class="section-tag">About Us</span>
+          <h2 class="section-title">A safe, respectful place to thrive each day.</h2>
+          <div class="mission-box">
+            <p>Our mission is to provide compassionate adult day health care that supports well-being, encourages independence, and gives families trusted daytime support.</p>
           </div>
-          <div class="card">
-            <div class="icon" aria-hidden="true">☀</div>
-            <h3>Social Services</h3>
-            <ul>
-              <li>Emotional support for participants and families</li>
-              <li>Guidance with care planning and community resources</li>
-              <li>Support directing transportation needs and coordination matters</li>
-              <li>Assistance navigating participant support concerns</li>
-            </ul>
-          </div>
-          <div class="card">
-            <div class="icon" aria-hidden="true">➜</div>
-            <h3>Transportation Guidance</h3>
-            <ul>
-              <li>Coordination support related to participant transportation</li>
-              <li>Guidance on arrival and departure logistics</li>
-              <li>Communication support with caregivers around scheduling needs</li>
-              <li>Focus on safe and reliable participation in the day program</li>
-            </ul>
-          </div>
-          <div class="card">
-            <div class="icon" aria-hidden="true">✚</div>
-            <h3>Therapeutic Programming</h3>
-            <ul>
-              <li>Structured group engagement and wellness oriented programming</li>
-              <li>Activities that support cognition, mood, and social interaction</li>
-              <li>Opportunities for stimulation, enjoyment, and routine</li>
-            </ul>
-          </div>
-          <div class="card">
-            <div class="icon" aria-hidden="true">☺</div>
-            <h3>Personal Care Support</h3>
-            <ul>
-              <li>Daytime support in a supervised setting</li>
-              <li>Respectful assistance based on participant needs</li>
-              <li>Focus on comfort, dignity, and daily well being</li>
-            </ul>
-          </div>
-          <div class="card">
-            <div class="icon" aria-hidden="true">⌂</div>
-            <h3>Family and Caregiver Support</h3>
-            <ul>
-              <li>Trusted daytime respite support</li>
-              <li>Communication that helps families stay informed</li>
-              <li>Partnership with caregivers to support continuity of care</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ══ ACTIVITIES — Photo 3 as banner ══ -->
-    <section class="activities" id="activities">
-      <div class="container">
-        <div class="section-head">
-          <h2>Activities and Engagement</h2>
-          <p>Our center offers structured activities that encourage participation, routine, enjoyment, and connection throughout the day.</p>
-        </div>
-
-        <!-- Photo 3 -->
-        <img
-          class="activities-banner"
-          src="https://plus.unsplash.com/premium_photo-1663100292731-1db42aedb494?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          alt="Seniors enjoying group activities together"
-          loading="lazy"
-        />
-
-        <div class="grid-3">
-          <div class="card">
-            <h3>Daily Group Activities</h3>
-            <ul>
-              <li>Games and social interaction</li>
-              <li>Music, movement, and light exercise</li>
-              <li>Arts, crafts, and creative expression</li>
-              <li>Cognitive and memory stimulating activities</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3>Special Events</h3>
-            <ul>
-              <li>Holiday celebrations</li>
-              <li>Birthday recognition</li>
-              <li>Cultural and seasonal events</li>
-              <li>Community gatherings and themed days</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3>Field Trips</h3>
-            <ul>
-              <li>Supervised outings designed for enjoyment and enrichment</li>
-              <li>Community based experiences that encourage engagement</li>
-              <li>Opportunities for social connection outside the center</li>
-              <li>Thoughtfully planned trips that create memorable moments</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ══ REFERRALS ══ -->
-    <section id="referrals" style="background: var(--bg);">
-      <div class="container">
-        <div class="cta">
-          <h2>Referrals and enrollment inquiries</h2>
-          <p>We welcome inquiries from families, physicians, discharge planners, social workers, case managers, and community organizations. Contact us to learn more about program fit, availability, and next steps.</p>
-          <a href="#contact" class="btn btn-secondary">Start an Inquiry</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ══ FAQ ══ -->
-    <section class="faq">
-      <div class="container">
-        <div class="section-head">
-          <h2>Frequently Asked Questions</h2>
-        </div>
-        <div class="grid-2">
-          <div class="card">
-            <h3>Who can attend Best ADHC?</h3>
-            <p>Participants who may benefit from daytime health related support, supervision, activities, and social engagement.</p>
-          </div>
-          <div class="card">
-            <h3>Do you help with transportation?</h3>
-            <p>We provide guidance and coordination support related to participant transportation needs and logistics.</p>
-          </div>
-          <div class="card">
-            <h3>How do I make a referral?</h3>
-            <p>Contact our team by phone, email, or the inquiry form below to discuss next steps and enrollment information.</p>
-          </div>
-          <div class="card">
-            <h3>Can families schedule a tour?</h3>
-            <p>Yes. Families and referral partners can contact us to schedule a visit and learn more about the program.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ══ CONTACT — Photo 4 as accent strip ══ -->
-    <section id="contact">
-      <div class="container">
-        <div class="section-head">
-          <h2>Contact Us</h2>
-          <p>Reach out by phone, email, or the form below. We're happy to answer questions and help you get started.</p>
-        </div>
-
-        <!-- Photo 4 -->
-        <img
-          class="contact-photo-strip"
-          src="https://plus.unsplash.com/premium_photo-1664475559006-b854dc6289a0?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          alt="Warm and welcoming care environment"
-          loading="lazy"
-        />
-
-        <div class="contact-grid">
-          <div class="card">
-            <h3>Reach our team</h3>
-            <div class="contact-list">
-
-              <div class="location-card">
-                <h4>North Hollywood Location</h4>
-                <p><strong>Address</strong><br />10858 Oxnard St, North Hollywood, CA 91606</p>
-                <p><strong>Phone</strong><br /><a href="tel:+18185091619">(818) 509-1619</a></p>
-                <a class="map-preview" href="https://www.google.com/maps/dir/?api=1&destination=10858+Oxnard+St+North+Hollywood+CA+91606" target="_blank">
-                  <iframe src="https://www.google.com/maps?q=10858+Oxnard+St+North+Hollywood+CA+91606&output=embed" loading="lazy" tabindex="-1" aria-hidden="true"></iframe>
-                  <span class="map-overlay">Get Directions</span>
-                </a>
-              </div>
-
-              <div class="location-card">
-                <h4>Tujunga Location</h4>
-                <p><strong>Address</strong><br />7235 Foothill Blvd, Tujunga, CA 91042</p>
-                <p><strong>Phone</strong><br /><a href="tel:+18183533224">(818) 353-3224</a></p>
-                <a class="map-preview" href="https://www.google.com/maps/dir/?api=1&destination=7235+Foothill+Blvd+Tujunga+CA+91042" target="_blank">
-                  <iframe src="https://www.google.com/maps?q=7235+Foothill+Blvd+Tujunga+CA+91042&output=embed" loading="lazy" tabindex="-1" aria-hidden="true"></iframe>
-                  <span class="map-overlay">Get Directions</span>
-                </a>
-              </div>
-
-              <div class="contact-item">
-                <strong>Email</strong><br />
-                <a href="mailto:info@bestadhc.com">info@bestadhc.com</a>
-              </div>
-
-              <div class="contact-item">
-                <strong>Program Hours</strong><br />
-                Monday to Friday, 8:00 AM to 3:00 PM
-              </div>
-
-            </div>
-          </div>
-
-          <div class="card">
-            <h3>Send an inquiry</h3>
-            <form action="https://formspree.io/f/xpqbjjjj" method="POST">
+          <p class="section-sub">Best ADHC blends health-related services, meaningful activities, and personalized care in one coordinated setting — so participants can live fully while families find peace of mind.</p>
+          <div style="margin-top: 32px; display: grid; gap: 16px;">
+            <div style="display: flex; gap: 14px; align-items: flex-start;">
+              <div style="width: 28px; height: 28px; border-radius: 50%; background: var(--cream); border: 1.5px solid var(--sky); display: grid; place-items: center; font-size: 0.75rem; flex-shrink: 0; margin-top: 2px;">1</div>
               <div>
+                <strong style="display: block; font-size: 0.9rem; color: var(--navy); margin-bottom: 2px;">Participant-centered care</strong>
+                <span style="font-size: 0.86rem; color: var(--muted); font-weight: 300;">Focused on each person's comfort, health needs, and goals.</span>
+              </div>
+            </div>
+            <div style="display: flex; gap: 14px; align-items: flex-start;">
+              <div style="width: 28px; height: 28px; border-radius: 50%; background: var(--cream); border: 1.5px solid var(--sky); display: grid; place-items: center; font-size: 0.75rem; flex-shrink: 0; margin-top: 2px;">2</div>
+              <div>
+                <strong style="display: block; font-size: 0.9rem; color: var(--navy); margin-bottom: 2px;">Meaningful daily structure</strong>
+                <span style="font-size: 0.86rem; color: var(--muted); font-weight: 300;">Care support, socialization, and supervised activities in balance.</span>
+              </div>
+            </div>
+            <div style="display: flex; gap: 14px; align-items: flex-start;">
+              <div style="width: 28px; height: 28px; border-radius: 50%; background: var(--cream); border: 1.5px solid var(--sky); display: grid; place-items: center; font-size: 0.75rem; flex-shrink: 0; margin-top: 2px;">3</div>
+              <div>
+                <strong style="display: block; font-size: 0.9rem; color: var(--navy); margin-bottom: 2px;">Family partnership</strong>
+                <span style="font-size: 0.86rem; color: var(--muted); font-weight: 300;">We help families navigate services and stay informed.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SERVICES ── -->
+  <section class="services-bg" id="services">
+    <div class="container">
+      <div class="reveal" style="margin-bottom: 44px;">
+        <span class="section-tag">What We Offer</span>
+        <h2 class="section-title">Our Services</h2>
+        <p class="section-sub">Comprehensive support designed to keep participants healthy, engaged, and connected.</p>
+      </div>
+      <div class="services-grid reveal">
+        <div class="service-cell">
+          <div class="sc-icon">❤</div>
+          <div class="sc-title">Nursing Services</div>
+          <ul class="sc-list">
+            <li>Health monitoring and observation</li>
+            <li>Medication support and oversight</li>
+            <li>Provider and caregiver communication</li>
+          </ul>
+        </div>
+        <div class="service-cell">
+          <div class="sc-icon">☀</div>
+          <div class="sc-title">Social Services</div>
+          <ul class="sc-list">
+            <li>Emotional support for participants and families</li>
+            <li>Care planning and community resource guidance</li>
+            <li>Support navigating participant concerns</li>
+          </ul>
+        </div>
+        <div class="service-cell">
+          <div class="sc-icon">➜</div>
+          <div class="sc-title">Transportation Guidance</div>
+          <ul class="sc-list">
+            <li>Coordination support for participant transportation</li>
+            <li>Arrival and departure logistics</li>
+            <li>Scheduling communication with caregivers</li>
+          </ul>
+        </div>
+        <div class="service-cell">
+          <div class="sc-icon">✚</div>
+          <div class="sc-title">Therapeutic Programming</div>
+          <ul class="sc-list">
+            <li>Wellness-oriented group activities</li>
+            <li>Cognitive, mood, and social engagement</li>
+            <li>Structured daily routine and stimulation</li>
+          </ul>
+        </div>
+        <div class="service-cell">
+          <div class="sc-icon">☺</div>
+          <div class="sc-title">Personal Care Support</div>
+          <ul class="sc-list">
+            <li>Supervised daytime assistance</li>
+            <li>Respectful, individualized support</li>
+            <li>Focus on comfort and dignity</li>
+          </ul>
+        </div>
+        <div class="service-cell">
+          <div class="sc-icon">⌂</div>
+          <div class="sc-title">Caregiver Support</div>
+          <ul class="sc-list">
+            <li>Trusted daytime respite care</li>
+            <li>Family communication and updates</li>
+            <li>Continuity of care partnership</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ACTIVITIES ── -->
+  <section id="activities">
+    <div class="container">
+      <div class="reveal" style="margin-bottom: 36px;">
+        <span class="section-tag">Daily Life</span>
+        <h2 class="section-title">Activities & Engagement</h2>
+        <p class="section-sub">Structured programming that encourages participation, routine, and genuine connection.</p>
+      </div>
+      <img
+        class="act-photo reveal"
+        src="https://plus.unsplash.com/premium_photo-1663100292731-1db42aedb494?q=80&w=1170&auto=format&fit=crop"
+        alt="Seniors enjoying group activities together"
+        loading="lazy"
+      />
+      <div class="act-grid">
+        <div class="act-card reveal reveal-delay-1">
+          <h3>Daily Group Activities</h3>
+          <ul>
+            <li>Games and social interaction</li>
+            <li>Music, movement, and light exercise</li>
+            <li>Arts, crafts, and creative expression</li>
+            <li>Cognitive and memory activities</li>
+          </ul>
+        </div>
+        <div class="act-card reveal reveal-delay-2">
+          <h3>Special Events</h3>
+          <ul>
+            <li>Holiday and birthday celebrations</li>
+            <li>Cultural and seasonal gatherings</li>
+            <li>Themed days and community events</li>
+          </ul>
+        </div>
+        <div class="act-card reveal reveal-delay-3">
+          <h3>Field Trips</h3>
+          <ul>
+            <li>Supervised community outings</li>
+            <li>Enriching experiences outside the center</li>
+            <li>Thoughtfully planned memorable moments</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA BAND ── -->
+  <div class="cta-band">
+    <div class="container reveal">
+      <h2 class="section-title">Ready to learn more?</h2>
+      <p>We welcome inquiries from families, physicians, case managers, and community partners. Contact us to discuss program fit and next steps.</p>
+      <a href="#contact" class="btn-cta">Get in Touch</a>
+    </div>
+  </div>
+
+  <!-- ── CONTACT ── -->
+  <section id="contact">
+    <div class="container">
+      <div class="reveal" style="margin-bottom: 48px;">
+        <span class="section-tag">Reach Us</span>
+        <h2 class="section-title">Contact Us</h2>
+        <p class="section-sub">We're happy to answer questions and help you get started.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="reveal-left">
+
+          <div class="location-block">
+            <h4>North Hollywood</h4>
+            <p>10858 Oxnard St, North Hollywood, CA 91606<br />
+            <a href="tel:+18185091619">(818) 509-1619</a></p>
+            <div class="map-wrap">
+              <iframe src="https://www.google.com/maps?q=10858+Oxnard+St+North+Hollywood+CA+91606&output=embed" loading="lazy" tabindex="-1" aria-hidden="true"></iframe>
+              <a class="map-link" href="https://www.google.com/maps/dir/?api=1&destination=10858+Oxnard+St+North+Hollywood+CA+91606" target="_blank" rel="noopener">Get Directions →</a>
+            </div>
+          </div>
+
+          <hr class="divider" />
+
+          <div class="location-block">
+            <h4>Tujunga</h4>
+            <p>7235 Foothill Blvd, Tujunga, CA 91042<br />
+            <a href="tel:+18183533224">(818) 353-3224</a></p>
+            <div class="map-wrap">
+              <iframe src="https://www.google.com/maps?q=7235+Foothill+Blvd+Tujunga+CA+91042&output=embed" loading="lazy" tabindex="-1" aria-hidden="true"></iframe>
+              <a class="map-link" href="https://www.google.com/maps/dir/?api=1&destination=7235+Foothill+Blvd+Tujunga+CA+91042" target="_blank" rel="noopener">Get Directions →</a>
+            </div>
+          </div>
+
+          <hr class="divider" />
+
+          <p style="font-size: 0.88rem; color: var(--muted); font-weight: 300;">
+            <strong style="color: var(--navy); font-weight: 500;">Email:</strong> <a href="mailto:info@bestadhc.com" style="color: var(--blue);">info@bestadhc.com</a><br />
+            <strong style="color: var(--navy); font-weight: 500;">Hours:</strong> Monday – Friday, 8:00 AM – 3:00 PM
+          </p>
+        </div>
+
+        <div class="reveal-right">
+          <div class="form-title">Send an inquiry</div>
+          <form action="https://formspree.io/f/xpqbjjjj" method="POST">
+            <div class="form-row">
+              <div class="field">
                 <label for="name">Full Name</label>
                 <input id="name" name="name" type="text" placeholder="Your name" />
               </div>
-              <div>
+              <div class="field">
                 <label for="phone">Phone Number</label>
-                <input id="phone" name="phone" type="tel" placeholder="Your phone number" />
+                <input id="phone" name="phone" type="tel" placeholder="Your phone" />
               </div>
-              <div>
+              <div class="field">
                 <label for="email">Email</label>
                 <input id="email" name="email" type="email" placeholder="Your email" />
               </div>
-              <div>
+              <div class="field">
                 <label for="role">I am a</label>
                 <select id="role" name="role">
                   <option>Family Member</option>
@@ -613,33 +906,51 @@
                   <option>Community Partner</option>
                 </select>
               </div>
-              <div>
+              <div class="field">
                 <label for="message">Message</label>
-                <textarea id="message" name="message" placeholder="Tell us how we can help"></textarea>
+                <textarea id="message" name="message" placeholder="How can we help?"></textarea>
               </div>
-              <button type="submit" class="btn btn-primary">Submit Inquiry</button>
-            </form>
-          </div>
+              <button type="submit" class="btn-form">Submit Inquiry</button>
+            </div>
+          </form>
         </div>
       </div>
-    </section>
-
-  </main>
+    </div>
+  </section>
 
   <footer>
-    <div class="container footer-wrap">
-      <div>
-        <strong>Best ADHC</strong><br />
-        Compassionate daytime care with health support, engagement, and community.
+    <div class="container">
+      <div class="footer-wrap">
+        <div>
+          <div class="footer-brand">Best ADHC</div>
+          <div class="footer-sub">Compassionate daytime care with health support, engagement, and community.</div>
+        </div>
+        <nav class="footer-links">
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#activities">Activities</a>
+          <a href="#contact">Contact</a>
+        </nav>
       </div>
-      <div class="footer-links">
-        <a href="#about">About</a>
-        <a href="#services">Services</a>
-        <a href="#activities">Activities</a>
-        <a href="#contact">Contact</a>
-      </div>
+      <p class="footer-copy">© 2025 Best ADHC. All rights reserved.</p>
     </div>
   </footer>
+
+  <script>
+    // Scroll-reveal observer
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => {
+      observer.observe(el);
+    });
+  </script>
 
 </body>
 </html>
