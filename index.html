@@ -590,8 +590,6 @@
       .about-photo img { height: 340px; }
     }
     @media (max-width: 700px) {
-      .nav-links { display: none; }
-      .hamburger { display: flex; }
       .strip-grid { grid-template-columns: 1fr; }
       .services-grid { grid-template-columns: 1fr; }
       .hero h1 { font-size: 2.2rem; }
@@ -704,6 +702,38 @@
       background: var(--sky);
       flex-shrink: 0;
     }
+
+    /* Mobile header and navigation */
+    @media (max-width: 700px) {
+      .nav {
+        padding: 12px 0;
+        gap: 10px;
+      }
+
+      .brand {
+        max-width: calc(100% - 58px);
+        min-width: 0;
+        gap: 9px;
+        font-size: 1.05rem;
+        line-height: 1.2;
+      }
+
+      .logo-mark {
+        width: 54px;
+        height: 54px;
+        border-radius: 0;
+        object-fit: contain;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -728,7 +758,14 @@
         <a href="#service-areas">Service Areas</a>
         <a href="#contact" class="btn-nav">Contact Us</a>
       </nav>
-      <button class="hamburger" id="hamburger" aria-label="Open menu">
+      <button
+        class="hamburger"
+        id="hamburger"
+        type="button"
+        aria-label="Open menu"
+        aria-expanded="false"
+        aria-controls="mobileMenu"
+      >
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -1086,7 +1123,7 @@
     <div class="container">
       <div class="footer-wrap">
         <div style="display:flex; align-items:center; gap:12px;">
-          <img src="simplebestlogo.png" alt="Best ADHC Logo" style="width:52px; height:52px; border-radius:50%; object-fit:cover; flex-shrink:0;" />
+          <img src="./simplebestlogo.png?v=3" alt="Best ADHC Logo" style="width:52px; height:52px; border-radius:0; object-fit:contain; flex-shrink:0;" />
           <div>
             <div class="footer-brand">Best ADHC</div>
             <div class="footer-sub">Compassionate daytime care with health support, engagement, and community.</div>
@@ -1112,11 +1149,16 @@
     function openMenu() {
       mobileMenu.classList.add('open');
       hamburger.classList.add('open');
+      hamburger.setAttribute('aria-expanded', 'true');
+      hamburger.setAttribute('aria-label', 'Close menu');
       document.body.style.overflow = 'hidden';
     }
+
     function closeMenu() {
       mobileMenu.classList.remove('open');
       hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      hamburger.setAttribute('aria-label', 'Open menu');
       document.body.style.overflow = '';
     }
 
