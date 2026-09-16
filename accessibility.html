@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Accessibility & Nondiscrimination | Best ADHC</title>
+  <meta name="description" content="Best ADHC accessibility statement, nondiscrimination notice, language assistance services, and ADA grievance procedure." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/jpeg" href="bestlogo.jpeg" />
+
+  <style>
+    :root {
+      --navy: #0f2d45;
+      --blue: #1f5f8b;
+      --sky: #8fc7d8;
+      --cream: #f8f6f2;
+      --white: #ffffff;
+      --muted: #6b7c8d;
+      --border: #e2e8ed;
+      --max: 900px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--navy);
+      background: var(--white);
+      line-height: 1.75;
+      overflow-x: hidden;
+    }
+
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(90%, var(--max));
+      margin: 0 auto;
+    }
+
+    /* ── TOPBAR ── */
+    .topbar {
+      background: var(--navy);
+      color: rgba(255,255,255,0.75);
+      font-size: 0.82rem;
+      letter-spacing: 0.02em;
+      padding: 9px 0;
+    }
+    .topbar .container {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .topbar a { color: rgba(255,255,255,0.75); }
+    .topbar a:hover { color: #fff; }
+
+    /* ── HEADER ── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 0;
+      gap: 20px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.45rem;
+      font-weight: 600;
+      color: var(--navy);
+      letter-spacing: 0.02em;
+      text-decoration: none;
+    }
+    .brand:hover { text-decoration: none; }
+    .logo-mark {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    .nav-links a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+      text-decoration: none;
+    }
+    .nav-links a:hover { color: var(--navy); text-decoration: none; }
+    .btn-nav {
+      background: var(--navy);
+      color: #fff !important;
+      padding: 10px 22px;
+      border-radius: 999px;
+      font-size: 0.87rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-nav:hover { background: var(--blue); transform: translateY(-1px); text-decoration: none; }
+
+    /* ── HAMBURGER ── */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+      width: 44px;
+      height: 44px;
+      background: none;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      cursor: pointer;
+      padding: 0;
+      z-index: 200;
+      flex-shrink: 0;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--navy);
+      border-radius: 2px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      transform-origin: center;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-menu {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 150;
+      pointer-events: none;
+      visibility: hidden;
+    }
+    .mobile-menu.open { pointer-events: all; visibility: visible; }
+    .mobile-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(15, 45, 69, 0.5);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .mobile-menu.open .mobile-overlay { opacity: 1; }
+    .mobile-drawer {
+      position: absolute;
+      top: 0; right: 0;
+      width: 75%;
+      max-width: 300px;
+      height: 100%;
+      background: #fff;
+      padding: 88px 32px 40px;
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      flex-direction: column;
+      box-shadow: -8px 0 32px rgba(0,0,0,0.12);
+    }
+    .mobile-menu.open .mobile-drawer { transform: translateX(0); }
+    .mobile-drawer a {
+      display: block;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--navy);
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+      letter-spacing: 0.02em;
+      transition: color 0.2s, padding-left 0.2s;
+      text-decoration: none;
+    }
+    .mobile-drawer a:hover { color: var(--blue); padding-left: 6px; text-decoration: none; }
+    .mobile-drawer .mobile-cta {
+      margin-top: 28px;
+      border: none;
+      background: var(--navy);
+      color: #fff !important;
+      text-align: center;
+      padding: 14px 0;
+      border-radius: 4px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      font-size: 0.95rem;
+    }
+    .mobile-drawer .mobile-cta:hover { background: var(--blue); padding-left: 0; }
+
+    /* ── PAGE HERO ── */
+    .page-hero {
+      background: var(--navy);
+      padding: 64px 0 56px;
+    }
+    .page-hero .section-tag {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--sky);
+      display: block;
+      margin-bottom: 14px;
+    }
+    .page-hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 500;
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 14px;
+    }
+    .page-hero p {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.65);
+      font-weight: 300;
+      max-width: 560px;
+    }
+
+    /* ── CONTENT ── */
+    .content {
+      padding: 72px 0 96px;
+    }
+
+    /* Table of contents */
+    .toc {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--sky);
+      border-radius: 0 4px 4px 0;
+      padding: 24px 28px;
+      margin-bottom: 56px;
+    }
+    .toc h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 14px;
+    }
+    .toc ol {
+      padding-left: 18px;
+      display: grid;
+      gap: 6px;
+    }
+    .toc li {
+      font-size: 0.9rem;
+      color: var(--blue);
+    }
+    .toc a { color: var(--blue); font-weight: 500; }
+
+    /* Sections */
+    .policy-section {
+      margin-bottom: 56px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid var(--border);
+    }
+    .policy-section:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+    .section-num {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--sky);
+      display: block;
+      margin-bottom: 10px;
+    }
+    .policy-section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+    .policy-section h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin: 24px 0 10px;
+    }
+    .policy-section p {
+      font-size: 0.93rem;
+      color: #3a4a57;
+      font-weight: 300;
+      line-height: 1.8;
+      margin-bottom: 14px;
+    }
+    .policy-section p:last-child { margin-bottom: 0; }
+    .policy-section ul, .policy-section ol {
+      padding-left: 20px;
+      margin-bottom: 14px;
+    }
+    .policy-section li {
+      font-size: 0.93rem;
+      color: #3a4a57;
+      font-weight: 300;
+      line-height: 1.8;
+      margin-bottom: 6px;
+    }
+
+    /* Contact box */
+    .contact-box {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 22px 24px;
+      margin: 20px 0;
+    }
+    .contact-box strong {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 8px;
+      letter-spacing: 0.02em;
+    }
+    .contact-box p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin: 0 !important;
+      line-height: 1.7;
+    }
+    .contact-box a { color: var(--blue); }
+
+    /* Language grid */
+    .lang-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 20px 0;
+    }
+    .lang-item {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 14px 16px;
+      font-size: 0.85rem;
+    }
+    .lang-name {
+      font-weight: 600;
+      color: var(--navy);
+      display: block;
+      margin-bottom: 2px;
+    }
+    .lang-note {
+      color: var(--muted);
+      font-size: 0.8rem;
+      font-weight: 300;
+    }
+
+    /* Alert box */
+    .alert-box {
+      background: #eaf4fb;
+      border: 1px solid #c0dff0;
+      border-left: 3px solid var(--blue);
+      border-radius: 0 4px 4px 0;
+      padding: 18px 22px;
+      margin: 20px 0;
+      font-size: 0.9rem;
+      color: var(--navy);
+      font-weight: 400;
+      line-height: 1.7;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--cream);
+      border-top: 1px solid var(--border);
+      padding: 40px 0;
+    }
+    .footer-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .footer-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--navy);
+    }
+    .footer-sub {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 4px;
+      font-weight: 300;
+    }
+    .footer-links {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-weight: 400;
+      transition: color 0.2s;
+      text-decoration: none;
+    }
+    .footer-links a:hover { color: var(--navy); }
+    .footer-copy {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 24px;
+      font-weight: 300;
+    }
+
+    /* Responsive */
+    @media (max-width: 700px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .lang-grid { grid-template-columns: repeat(2, 1fr); }
+      .page-hero { padding: 48px 0 40px; }
+      .content { padding: 48px 0 64px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="container">
+      <span>North Hollywood: <a href="tel:+18185091619">(818) 509-1619</a> &nbsp;·&nbsp; Tujunga: <a href="tel:+18183533224">(818) 353-3224</a></span>
+      <span><a href="mailto:info@bestadhc.com">info@bestadhc.com</a> &nbsp;·&nbsp; Mon – Fri, 8:00 AM – 3:00 PM</span>
+    </div>
+  </div>
+
+  <header>
+    <div class="container nav">
+      <a href="index.html" class="brand">
+        <img src="bestlogo.jpeg" class="logo-mark" alt="Best ADHC Logo" />
+        Best Adult Day Health Care Center
+      </a>
+      <nav class="nav-links">
+        <a href="index.html#about">About</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#activities">Activities</a>
+        <a href="index.html#service-areas">Service Areas</a>
+        <a href="index.html#contact" class="btn-nav">Contact Us</a>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-drawer">
+      <a href="index.html#about" class="mobile-link">About</a>
+      <a href="index.html#services" class="mobile-link">Services</a>
+      <a href="index.html#activities" class="mobile-link">Activities</a>
+      <a href="index.html#service-areas" class="mobile-link">Service Areas</a>
+      <a href="index.html#contact" class="mobile-cta">Contact Us</a>
+    </div>
+  </div>
+
+  <!-- ── PAGE HERO ── -->
+  <div class="page-hero">
+    <div class="container">
+      <span class="section-tag">Legal & Compliance</span>
+      <h1>Accessibility &amp; Nondiscrimination</h1>
+      <p>Best ADHC is committed to providing equal access to all participants, families, and visitors — regardless of race, color, national origin, age, disability, or sex.</p>
+    </div>
+  </div>
+
+  <!-- ── CONTENT ── -->
+  <div class="content">
+    <div class="container">
+
+      <!-- Table of Contents -->
+      <div class="toc">
+        <h2>On This Page</h2>
+        <ol>
+          <li><a href="#nondiscrimination">Nondiscrimination Notice (Section 1557 / ACA)</a></li>
+          <li><a href="#ada">Americans with Disabilities Act (ADA) Statement</a></li>
+          <li><a href="#language">Language Assistance Services</a></li>
+          <li><a href="#website">Website Accessibility (WCAG)</a></li>
+          <li><a href="#grievance">ADA Grievance Procedure</a></li>
+          <li><a href="#contact-coordinator">Contact Our Accessibility Coordinator</a></li>
+        </ol>
+      </div>
+
+      <!-- 1. Nondiscrimination Notice -->
+      <div class="policy-section" id="nondiscrimination">
+        <span class="section-num">Section 1 — ACA / Section 1557</span>
+        <h2>Nondiscrimination Notice</h2>
+
+        <p>Best ADHC complies with applicable Federal and California civil rights laws and does not discriminate on the basis of race, color, national origin, age, disability, or sex. Best ADHC does not exclude people or treat them differently because of race, color, national origin, age, disability, or sex.</p>
+
+        <h3>Best ADHC provides:</h3>
+        <ul>
+          <li>Free aids and services to people with disabilities to communicate effectively with us, such as qualified sign language interpreters and written information in other formats (large print, audio, accessible electronic formats, and others).</li>
+          <li>Free language services to people whose primary language is not English, such as qualified interpreters and information written in other languages.</li>
+        </ul>
+
+        <div class="alert-box">
+          If you need these services, contact our Accessibility Coordinator at <a href="tel:+18185091619">(818) 509-1619</a> or <a href="mailto:info@bestadhc.com">info@bestadhc.com</a>.
+        </div>
+
+        <p>If you believe that Best ADHC has failed to provide these services or discriminated in another way on the basis of race, color, national origin, age, disability, or sex, you can file a grievance with our Accessibility Coordinator (see Section 5 below). You can also file a civil rights complaint with the U.S. Department of Health and Human Services, Office for Civil Rights, electronically through the Office for Civil Rights Complaint Portal at <a href="https://ocrportal.hhs.gov/ocr/portal/lobby.jsf" target="_blank" rel="noopener">ocrportal.hhs.gov</a>, or by mail or phone at:</p>
+
+        <div class="contact-box">
+          <strong>U.S. Department of Health and Human Services</strong>
+          <p>200 Independence Avenue SW, Room 509F, HHH Building<br />
+          Washington, D.C. 20201<br />
+          Phone: <a href="tel:18008683285">1-800-868-1019</a> (TDD/TTY: <a href="tel:18005375994">1-800-537-5994</a>)<br />
+          Complaint Portal: <a href="https://ocrportal.hhs.gov/ocr/portal/lobby.jsf" target="_blank" rel="noopener">ocrportal.hhs.gov</a></p>
+        </div>
+
+        <p>Complaint forms are available at <a href="https://www.hhs.gov/ocr/office/file/index.html" target="_blank" rel="noopener">hhs.gov/ocr/office/file/index.html</a>.</p>
+
+        <p>Best ADHC also complies with California Department of Health Care Services (DHCS) nondiscrimination requirements applicable to Community Based Adult Services (CBAS) providers.</p>
+      </div>
+
+      <!-- 2. ADA -->
+      <div class="policy-section" id="ada">
+        <span class="section-num">Section 2 — ADA</span>
+        <h2>Americans with Disabilities Act (ADA) Statement</h2>
+
+        <p>Best ADHC is committed to full compliance with the Americans with Disabilities Act of 1990 (ADA) and Section 504 of the Rehabilitation Act of 1973. We provide reasonable accommodations to qualified individuals with disabilities in all aspects of our programs, services, and activities.</p>
+
+        <h3>Physical Accessibility</h3>
+        <p>Our North Hollywood and Tujunga facilities are designed to be accessible to individuals with disabilities, including:</p>
+        <ul>
+          <li>Wheelchair-accessible entrances, restrooms, and common areas</li>
+          <li>Accessible parking spaces at both locations</li>
+          <li>Accessible seating and activity areas throughout the program</li>
+        </ul>
+
+        <h3>Reasonable Accommodations</h3>
+        <p>We will make reasonable modifications to our policies, practices, and procedures to avoid discrimination against individuals with disabilities, unless doing so would fundamentally alter the nature of our services. To request an accommodation, contact our Accessibility Coordinator at least five (5) business days in advance when possible.</p>
+
+        <h3>Auxiliary Aids and Services</h3>
+        <p>We provide auxiliary aids and services free of charge to participants and companions with disabilities, including but not limited to:</p>
+        <ul>
+          <li>Qualified sign language and oral interpreters</li>
+          <li>Written materials in alternative formats (large print, Braille, audio)</li>
+          <li>Assistive listening devices where available</li>
+          <li>TTY/TDD access upon request</li>
+        </ul>
+      </div>
+
+      <!-- 3. Language Assistance -->
+      <div class="policy-section" id="language">
+        <span class="section-num">Section 3 — Language Access</span>
+        <h2>Language Assistance Services</h2>
+
+        <p>Best ADHC provides free language assistance services to individuals whose primary language is not English. As a CBAS provider, we comply with the California Department of Health Care Services language access requirements and the federal requirements under Title VI of the Civil Rights Act of 1964.</p>
+
+        <div class="alert-box">
+          <strong>ATTENTION:</strong> If you speak a language other than English, language assistance services, free of charge, are available to you. Call <a href="tel:+18185091619">(818) 509-1619</a>.
+        </div>
+
+        <h3>Languages We Serve</h3>
+        <p>We serve a diverse community and can arrange interpreter services for many languages. The following are among the most common languages in our service area:</p>
+
+        <div class="lang-grid">
+          <div class="lang-item">
+            <span class="lang-name">Spanish</span>
+            <span class="lang-note">Español — Servicios disponibles</span>
+          </div>
+          <div class="lang-item">
+            <span class="lang-name">Armenian</span>
+            <span class="lang-note">Հայերեն — Ծառայությունները հասանելի են</span>
+          </div>
+          <div class="lang-item">
+            <span class="lang-name">Korean</span>
+            <span class="lang-note">한국어 — 서비스 이용 가능</span>
+          </div>
+          <div class="lang-item">
+            <span class="lang-name">Tagalog</span>
+            <span class="lang-note">Mga serbisyong available</span>
+          </div>
+          <div class="lang-item">
+            <span class="lang-name">Russian</span>
+            <span class="lang-note">Русский — Услуги доступны</span>
+          </div>
+          <div class="lang-item">
+            <span class="lang-name">Farsi / Persian</span>
+            <span class="lang-note">فارسی — خدمات موجود است</span>
+          </div>
+          <div class="lang-item">
+            <span class="lang-name">Chinese</span>
+            <span class="lang-note">中文 — 提供服务</span>
+          </div>
+          <div class="lang-item">
+            <span class="lang-name">Vietnamese</span>
+            <span class="lang-note">Tiếng Việt — Dịch vụ có sẵn</span>
+          </div>
+          <div class="lang-item">
+            <span class="lang-name">Other Languages</span>
+            <span class="lang-note">Contact us to arrange services</span>
+          </div>
+        </div>
+
+        <p>To request language assistance, please contact us at least 48 hours in advance when possible so we can arrange appropriate interpreter services. Emergency interpreter services are also available.</p>
+
+        <h3>DHCS Notice in Multiple Languages</h3>
+        <p>In accordance with California Department of Health Care Services requirements, notice of the availability of language assistance services is provided in the threshold languages identified for our service area. Translated versions of this notice are available upon request by contacting our office.</p>
+      </div>
+
+      <!-- 4. Website Accessibility -->
+      <div class="policy-section" id="website">
+        <span class="section-num">Section 4 — Web Accessibility</span>
+        <h2>Website Accessibility (WCAG)</h2>
+
+        <p>Best ADHC is committed to ensuring that our website, <strong>bestadhc.com</strong>, is accessible to people with disabilities. We strive to conform to the Web Content Accessibility Guidelines (WCAG) 2.1, Level AA, published by the World Wide Web Consortium (W3C).</p>
+
+        <h3>Our Efforts Include:</h3>
+        <ul>
+          <li>Semantic HTML structure for compatibility with screen readers</li>
+          <li>Sufficient color contrast ratios for text and interactive elements</li>
+          <li>Keyboard navigability throughout the site</li>
+          <li>Alternative text for meaningful images</li>
+          <li>Responsive design that works across devices and zoom levels</li>
+          <li>Clear, plain-language content</li>
+        </ul>
+
+        <h3>Known Limitations</h3>
+        <p>We are continuously working to improve the accessibility of our website. If you encounter any content that is not accessible to you, please contact us and we will make every reasonable effort to provide the information in an alternative format.</p>
+
+        <h3>Third-Party Content</h3>
+        <p>Our website may contain embedded content from third parties (such as Google Maps). We do not control the accessibility of third-party content and encourage you to contact those providers directly for accessibility assistance.</p>
+
+        <div class="alert-box">
+          If you have difficulty accessing any part of our website, please contact us at <a href="mailto:info@bestadhc.com">info@bestadhc.com</a> or call <a href="tel:+18185091619">(818) 509-1619</a> and we will assist you promptly.
+        </div>
+      </div>
+
+      <!-- 5. Grievance Procedure -->
+      <div class="policy-section" id="grievance">
+        <span class="section-num">Section 5 — Grievance Procedure</span>
+        <h2>ADA Grievance Procedure</h2>
+
+        <p>This grievance procedure is established to meet the requirements of the Americans with Disabilities Act of 1990. It may be used by anyone who wishes to file a complaint alleging discrimination on the basis of disability in the provision of services, activities, programs, or benefits by Best ADHC.</p>
+
+        <h3>How to File a Grievance</h3>
+        <p>Grievances must be submitted in writing (or verbally if the individual is unable to write) to Best ADHC's Accessibility Coordinator within sixty (60) calendar days of the alleged violation. The grievance should contain the following information:</p>
+        <ul>
+          <li>Your name, address, and phone number</li>
+          <li>A description of the alleged discriminatory action in sufficient detail to inform the Coordinator of the nature and date of the alleged violation</li>
+          <li>A description of the remedy or relief you are seeking</li>
+          <li>Your signature (or the signature of your authorized representative)</li>
+        </ul>
+
+        <h3>Investigation and Response</h3>
+        <ol>
+          <li>Within <strong>15 calendar days</strong> of receipt, the Accessibility Coordinator will acknowledge receipt of your grievance in writing.</li>
+          <li>Within <strong>45 calendar days</strong>, the Coordinator will conduct a thorough investigation and respond to the grievance in writing, outlining the position of Best ADHC and offering options for substantive resolution where appropriate.</li>
+          <li>If the response does not satisfactorily resolve the issue, you may appeal the decision within <strong>15 calendar days</strong> of receiving the response by requesting a review from the Administrator of Best ADHC.</li>
+          <li>The Administrator will respond in writing within <strong>15 calendar days</strong> of receiving the appeal.</li>
+        </ol>
+
+        <h3>Confidentiality</h3>
+        <p>All grievances received and responses made will be kept confidential to the extent possible, consistent with the need to investigate the grievance and to provide appropriate remedies. Grievance records will be retained for a minimum of three (3) years.</p>
+
+        <h3>External Complaints</h3>
+        <p>Filing a grievance with Best ADHC does not preclude you from also filing a complaint with the applicable government agencies:</p>
+        <ul>
+          <li><strong>California Department of Health Care Services (DHCS):</strong> <a href="https://www.dhcs.ca.gov" target="_blank" rel="noopener">dhcs.ca.gov</a> — For complaints related to CBAS services</li>
+          <li><strong>U.S. Department of Health and Human Services, Office for Civil Rights:</strong> <a href="https://ocrportal.hhs.gov" target="_blank" rel="noopener">ocrportal.hhs.gov</a></li>
+          <li><strong>California Department of Fair Employment and Housing:</strong> <a href="https://www.dfeh.ca.gov" target="_blank" rel="noopener">dfeh.ca.gov</a> | <a href="tel:18009846049">1-800-884-1684</a></li>
+          <li><strong>U.S. Equal Employment Opportunity Commission:</strong> <a href="https://www.eeoc.gov" target="_blank" rel="noopener">eeoc.gov</a> | <a href="tel:18004699767">1-800-669-4000</a></li>
+        </ul>
+      </div>
+
+      <!-- 6. Contact Coordinator -->
+      <div class="policy-section" id="contact-coordinator">
+        <span class="section-num">Section 6 — Contact</span>
+        <h2>Contact Our Accessibility Coordinator</h2>
+
+        <p>For all accessibility-related requests, accommodations, language assistance, or to file a grievance, please contact our designated Accessibility Coordinator:</p>
+
+        <div class="contact-box">
+          <strong>Best ADHC — Accessibility Coordinator</strong>
+          <p>
+            <strong>North Hollywood:</strong> 10858 Oxnard St, North Hollywood, CA 91606<br />
+            Phone: <a href="tel:+18185091619">(818) 509-1619</a><br /><br />
+            <strong>Tujunga:</strong> 7235 Foothill Blvd, Tujunga, CA 91042<br />
+            Phone: <a href="tel:+18183533224">(818) 353-3224</a><br /><br />
+            Email: <a href="mailto:info@bestadhc.com">info@bestadhc.com</a><br />
+            Hours: Monday – Friday, 8:00 AM – 3:00 PM
+          </p>
+        </div>
+
+        <p>This Accessibility &amp; Nondiscrimination Policy was last reviewed and updated in 2025. Best ADHC will review and update this policy at least annually and as required by changes in applicable law.</p>
+
+        <div class="alert-box">
+          Nothing in this policy shall be construed to limit the rights of individuals with disabilities under the ADA, Section 504, or applicable California law. Best ADHC is committed to the ongoing improvement of accessibility for all participants and visitors.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="container">
+      <div class="footer-wrap">
+        <div style="display:flex; align-items:center; gap:12px;">
+          <img src="bestlogo.jpeg" alt="Best ADHC Logo" style="width:52px; height:52px; border-radius:50%; object-fit:cover; flex-shrink:0;" />
+          <div>
+            <div class="footer-brand">Best ADHC</div>
+            <div class="footer-sub">Compassionate daytime care with health support, engagement, and community.</div>
+          </div>
+        </div>
+        <nav class="footer-links">
+          <a href="index.html#about">About</a>
+          <a href="index.html#services">Services</a>
+          <a href="index.html#activities">Activities</a>
+          <a href="index.html#service-areas">Service Areas</a>
+          <a href="index.html#contact">Contact</a>
+          <a href="accessibility.html" style="color: var(--navy); font-weight: 600;">Accessibility</a>
+        </nav>
+      </div>
+      <p class="footer-copy">© 2025 Best ADHC. All rights reserved. &nbsp;·&nbsp; <a href="accessibility.html" style="color: var(--muted);">Accessibility & Nondiscrimination</a></p>
+    </div>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileOverlay = document.getElementById('mobileOverlay');
+
+    function openMenu() {
+      mobileMenu.classList.add('open');
+      hamburger.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMenu() {
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    hamburger.addEventListener('click', () => {
+      mobileMenu.classList.contains('open') ? closeMenu() : openMenu();
+    });
+    mobileOverlay.addEventListener('click', closeMenu);
+    document.querySelectorAll('.mobile-link, .mobile-cta').forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+  </script>
+
+</body>
+</html>
